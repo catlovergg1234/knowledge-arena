@@ -1,0 +1,10 @@
+{
+  "name": "bilgi-arenasi-dkab-5",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dört arkadaş için 50 soruluk, gerçek zamanlı 5. sınıf DKAB 1. ünite bilgi yarışması",
+  "main": "server.js",
+  "scripts": {"start": "node server.js", "test": "node tests/test.js"},
+  "engines": {"node": ">=20"},
+  "dependencies": {"ws": "^8.18.3"}
+}

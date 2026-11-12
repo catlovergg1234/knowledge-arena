@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#101a35" />
+  <meta name="description" content="4 arkadaş için 50 soruluk, gerçek zamanlı DKAB 5. sınıf 1. ünite bilgi yarışması." />
+  <title>Bilgi Arenası — 4 Kişilik Yarışma</title>
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="glow glow-one"></div><div class="glow glow-two"></div>
+  <div class="app">
+    <header class="header">
+      <div class="brand"><div class="brand-icon">✦</div><div><strong>BİLGİ ARENASI</strong><small>4 Kişilik Bilgi Yarışması</small></div></div>
+      <div class="top-right"><span id="connection" class="connection"><i></i> Bağlanıyor…</span><span class="header-pill">5. SINIF · 1. ÜNİTE</span></div>
+    </header>
+
+    <main>
+      <section id="home" class="home">
+        <div class="eyebrow"><span>✦</span> ARKADAŞLARINLA OYNA <span>✦</span></div>
+        <h1>Bilginle <em>parla.</em><br/>Arenaya katıl!</h1>
+        <p class="lead">Dört arkadaş, aynı anda 50 soru. Allah İnancı ünitesini birlikte eğlenerek tekrar edin.</p>
+        <div class="feature-row"><div>✍️ <b>50 özgün soru</b></div><div>⏳ <b>60 saniye</b></div><div>🏆 <b>Canlı puanlar</b></div></div>
+        <div class="home-panel">
+          <button id="create" class="primary large">✦ &nbsp; Yeni oyun odası aç</button>
+          <div class="or"><span>veya arkadaşlarının odasına katıl</span></div>
+          <form id="joinForm" class="join-form"><input id="roomInput" maxlength="6" autocomplete="off" spellcheck="false" placeholder="ODA KODU" aria-label="Oda kodu" /><button type="submit" class="secondary">Odaya katıl →</button></form>
+        </div>
+        <p class="home-foot">Herkes kendi telefonundan veya bilgisayarından katılabilir. 🎮</p>
+      </section>
+
+      <section id="lobby" class="screen hidden">
+        <div class="stage-tag">◈ OYUNCU BEKLEME ODASI</div>
+        <h2>Arkadaşlarını <em>topla!</em></h2>
+        <p class="screen-sub">Dört kişi de odaya girip A, B, C veya D koltuğunu seçsin.</p>
+        <div class="room-banner"><div><small>OYUN ODA KODU</small><strong id="roomCode">———</strong></div><button id="copyInvite" class="copy-button">🔗 Davet bağlantısını kopyala</button></div>
+        <div id="seatGrid" class="seat-grid"></div>
+        <p id="lobbyStatus" class="lobby-status">Oyuncular bekleniyor…</p>
+        <button id="start" class="primary start-button" disabled>4 oyuncu gelince başla →</button>
+        <p class="hint">Oyun başlayınca 50 soruyu hep birlikte çözeceksiniz. Her sorunun süresi en fazla 60 saniye; dört kişi de cevaplayınca hemen sonuç gösterilir.</p>
+        <button id="leave" class="text-button">← Ana sayfaya dön</button>
+      </section>
+
+      <section id="game" class="screen game hidden">
+        <div class="game-top"><div><div id="roundLabel" class="stage-tag">SORU 1 / 50</div><h2 id="category" class="category">Evrendeki Düzen</h2></div><div class="timer" id="timer" aria-live="off"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="timer-bg" cx="50" cy="50" r="42"/><circle id="timerArc" class="timer-arc" cx="50" cy="50" r="42"/></svg><span id="timerText">60</span></div></div>
+        <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+        <div class="question-card"><div id="qEyebrow" class="question-eyebrow">✦ BİLGİNİ GÖSTER</div><h3 id="question">Soru hazırlanıyor…</h3><div id="answers" class="answers"></div><p id="answerStatus" class="answer-status">Cevabını seç…</p></div>
+        <div id="revealBox" class="reveal-box hidden"><div id="revealHeading" class="reveal-title">✅ Doğru cevap!</div><p id="explanation"></p><small>Bir sonraki soruya geçiliyor…</small></div>
+        <div class="scoreboard-head"><span>🏅 CANLI PUAN TABLOSU</span><span id="answeredCount">0 / 4 cevapladı</span></div>
+        <div id="gameScores" class="scores"></div>
+        <p id="spectatorHint" class="hint hidden">Sen izleyici olarak katıldın; cevap verebilmek için oyun başlamadan koltuk seçmelisin.</p>
+      </section>
+
+      <section id="finished" class="screen finished hidden">
+        <div class="trophy">🏆</div><div class="stage-tag">50 SORU TAMAMLANDI</div><h2 id="winnerTitle">Şampiyon belli oldu!</h2><p class="screen-sub">Harika bir yarışmaydı. İşte final sıralaması:</p>
+        <div id="finalScores" class="final-scores"></div>
+        <button id="again" class="primary start-button">⟳ &nbsp; Aynı kişilerle tekrar oyna</button>
+        <p class="hint">Yeni turda soruların ve cevap seçeneklerinin sırası karıştırılır.</p>
+      </section>
+    </main>
+
+    <footer>✦ 5. sınıf Din Kültürü ve Ahlak Bilgisi · 1. Ünite: Allah İnancı</footer>
+  </div>
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script defer src="/client.js"></script>
+</body>
+</html>
