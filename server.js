@@ -118,7 +118,7 @@ function handle(ws,msg){
     if(room.phase!=='question')return;
     if(Date.now()>=room.deadline){revealRound(room);return;}
     const i=memberSeat(room,ws);
-    if(i<0||room.answers[i]!==undefined||!Number.isInteger(msg.option)||msg.option<0||msg.option>3)return;
+    if(i<0||!Number.isInteger(msg.option)||msg.option<0||msg.option>3)return;
     room.answers[i]=msg.option;
     if(room.seats.every((p,j)=>p&&room.answers[j]!==undefined))revealRound(room);else broadcast(room);
   }
