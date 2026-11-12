@@ -34,7 +34,7 @@ function stateFor(room,ws){
   const index=memberSeat(room,ws);
   const item=room.deck[room.roundNo];
   const state={type:'state',serverNow:Date.now(),code:room.code,phase:room.phase,seat:index<0?null:'ABCD'[index],total:QUESTIONS.length,questionNumber:room.roundNo+1,deadline:room.deadline,revealUntil:room.revealUntil,
-    players:room.seats.map((p,i)=>({seat:'ABCD'[i],taken:!!p,connected:!!(p&&p.socket&&p.socket.readyState===WebSocket.OPEN),score:room.scores[i],correct:room.corrects[i],answered:room.answers[i]!==undefined, clientId: p.clientId}))};
+    players:room.seats.map((p,i)=>({seat:'ABCD'[i],taken:!!p,connected:!!(p&&p.socket&&p.socket.readyState===WebSocket.OPEN),score:room.scores[i],correct:room.corrects[i],answered:room.answers[i]!==undefined, clientId: p?.clientId ?? null}))};
   if(item&&(room.phase==='question'||room.phase==='reveal')){
     state.question={category:item.category,text:item.text,options:item.options};
     if(room.phase==='reveal'){
