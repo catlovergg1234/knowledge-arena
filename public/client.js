@@ -15,6 +15,7 @@ function connect(){
  connecting=true;
  const proto=location.protocol==='https:'?'wss:':'ws:';
  socket=new WebSocket(`${proto}//${location.host}/ws`);
+ window.gameSocket = socket;
  socket.onopen=()=>{connecting=false;$('connection').className='connection online';$('connection').innerHTML='<i></i> Bağlandı';if(shouldRejoin&&rejoinCode)send({type:'join',code:rejoinCode,clientId:myClientId});};
  socket.onmessage=e=>{
   let data;try{data=JSON.parse(e.data);}catch{return;}
